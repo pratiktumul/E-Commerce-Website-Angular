@@ -11,6 +11,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { NavbarComponent } from './Shared/navbar/navbar.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
  
    
@@ -23,6 +25,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     ForgotPasswordComponent,
    ],
 
+    AppComponent,
+    NavbarComponent,
+    AdminComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
