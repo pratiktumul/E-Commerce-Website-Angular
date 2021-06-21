@@ -9,8 +9,8 @@
                <!-- --------------------------------------------Username---------------------------------------------- -->
 
                <div class="form-group col-7">
-                  <label>Username</label>
-                  <input type="text" formControlName="userName" class="form-control" placeholder="username*"
+                  <label>Username*</label>
+                  <input type="text" formControlName="userName" class="form-control" placeholder="username"
                      [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
                   <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
                      <div *ngIf="f.userName.errors.required">Username is required</div>
@@ -23,8 +23,8 @@
 
                <div class="form-group col-7">
                   <!-- [type]="hide ? 'text' : 'password'" -->
-                  <label>Password</label>
-                  <input type="password" formControlName="password" class="form-control" placeholder="password*"
+                  <label>Password*</label>
+                  <input type="password" formControlName="password" class="form-control" placeholder="password"
                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
 
                   <!-- <mat-icon   matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
@@ -34,9 +34,11 @@
                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
 
                   </div>
+     
 
                </div><br>
 
+              
                <!-- ---------------------------------------------Password ends--------------------------------------- -->
                <div>
                   <button style="margin: 12px;" class="btn btn-primary">Login</button>
