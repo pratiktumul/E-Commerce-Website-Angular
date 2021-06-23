@@ -15,6 +15,7 @@ import { NavbarComponent } from './Shared/navbar/navbar.component';
 
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 import { UserHomeComponent } from './User/user-home/user-home.component';
+import { ProductsComponent } from './Shared/Products/products/products.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserHomeComponent } from './User/user-home/user-home.component';
     NavbarComponent,
     AdminHomeComponent,
     UserHomeComponent,
+    ProductsComponent,
     //AdminComponent,
   ],
   imports: [
