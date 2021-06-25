@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './Shared/navbar/forgot-password/forgot-password.component';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
+import { SignupComponent } from './Shared/navbar/signup/signup.component';
 
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
@@ -24,6 +25,7 @@ import { HomeComponent } from './Admin/Home/home/home.component';
     ForgotPasswordComponent,
     AppComponent,
     NavbarComponent,
+    SignupComponent,
     ProductsComponent,
     HomeComponent,
     //AdminComponent,
