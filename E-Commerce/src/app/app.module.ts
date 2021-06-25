@@ -13,9 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './Shared/navbar/forgot-password/forgot-password.component';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
 
-import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
-import { UserHomeComponent } from './User/user-home/user-home.component';
+
 import { ProductsComponent } from './Shared/Products/products/products.component';
+import { HomeComponent } from './Shared/Home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,8 @@ import { ProductsComponent } from './Shared/Products/products/products.component
     ForgotPasswordComponent,
     AppComponent,
     NavbarComponent,
-    AdminHomeComponent,
-    UserHomeComponent,
     ProductsComponent,
+    HomeComponent,
     //AdminComponent,
   ],
   imports: [
