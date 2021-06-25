@@ -15,7 +15,7 @@ import { NavbarComponent } from './Shared/navbar/navbar.component';
 
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
-import { HomeComponent } from './Shared/Home/home/home.component';
+import { HomeComponent } from './Admin/Home/home/home.component';
 
 @NgModule({
   declarations: [

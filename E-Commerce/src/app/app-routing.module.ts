@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForgotPasswordComponent } from './Shared/navbar/forgot-password/forgot-password.component';
 import { LoginComponent } from './Shared/navbar/login/login.component';
-import { HomeComponent } from './Shared/Home/home/home.component';
+import { HomeComponent } from './Admin/Home/home/home.component';
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
 
