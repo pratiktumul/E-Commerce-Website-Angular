@@ -5,8 +5,7 @@ import { LoginComponent } from './Shared/navbar/login/login.component';
 import { HomeComponent } from './Admin/Home/home/home.component';
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { LoginComponent } from './components/login/login.component';
+
 import { SignupComponent } from './Shared/navbar/signup/signup.component';
 
 const routes: Routes = [
