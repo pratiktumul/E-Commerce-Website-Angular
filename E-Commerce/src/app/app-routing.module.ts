@@ -7,10 +7,12 @@ import { HomeComponent } from './Admin/Home/home/home.component';
 import { ProductsComponent } from './Shared/Products/products/products.component';
 
 import { SignupComponent } from './Shared/navbar/signup/signup.component';
+import { AuthGuardGuard } from './Guards/auth-guard.guard';
 
 const routes: Routes = [
-  {path: '',redirectTo:'Home', pathMatch:'full'},
-  {path:'Home',component:HomeComponent},
+  {path: '',redirectTo:'login', pathMatch:'full'},
+  
+  {path:'Home',component:HomeComponent, canActivate: [AuthGuardGuard]},
 
   {path:'Products',component:ProductsComponent}, 
 
