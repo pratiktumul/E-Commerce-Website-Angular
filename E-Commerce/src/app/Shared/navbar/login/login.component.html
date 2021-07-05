@@ -1,14 +1,14 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-   <div align="center" class="card">
+   <div align="center" class="card" >
       <div fxLayout="column" fxLayoutAlign="center center">
 
          <img src="../../../assets/icon1.png"> <br>
-         <p *ngIf="message" class="text-center error">{{message}}</p>  
+         
 
          <h4>Login Page</h4>
          <div class="card-body">
 
-
+            <p *ngIf="message" class="text-center error">{{message}}</p>  
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                <div class="form-row">
  <!-- --------------------------------------------Username---------------------------------------------- -->
@@ -30,7 +30,7 @@
                      <!-- [type]="hide ? 'text' : 'password'" -->
                      <label>Password</label>
                      <input  type="password" formControlName="passWord" class="form-control" placeholder=" Enter Password"
-                        [ngClass]="{ 'has-error': submitted && f.password.errors }" >
+                        [ngClass]="{ 'has-error': submitted && f.passWord.errors }" >
 
                       <!-- <mat-icon   matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
 

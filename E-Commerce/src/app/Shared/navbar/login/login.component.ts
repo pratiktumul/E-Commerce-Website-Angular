@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   message: string;  
   returnUrl: string;
+  isAdmin:boolean;
     
 
   constructor(private formBuilder:FormBuilder, private service: AccountService,private router: Router) {
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 // ---------------------------------------validations--------------------------------------//
-
+    this.isAdmin=false;
     this.registerForm = this.formBuilder.group({
       userName: ['',Validators.compose([ Validators.required , Validators.email]) ],
       passWord: ['', [Validators.required, Validators.minLength(6)] ],
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-
+      this.isAdmin=true;
        if (this.registerForm.invalid) {
           return;
       }
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.message="Please check Credentials";
+          console.log(this.message);
         }
       }
 

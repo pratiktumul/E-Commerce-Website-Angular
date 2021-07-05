@@ -17,6 +17,8 @@ import { AuthGuardGuard } from './Guards/auth-guard.guard';
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
 import { HomeComponent } from './Admin/Home/home/home.component';
+import { UserHomeComponent } from './User/user-home/user-home.component';
+import { ProductComponent } from './Products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HomeComponent } from './Admin/Home/home/home.component';
     SignupComponent,
     ProductsComponent,
     HomeComponent,
+    UserHomeComponent,
+    ProductComponent,
     //AdminComponent,
   ],
   imports: [
