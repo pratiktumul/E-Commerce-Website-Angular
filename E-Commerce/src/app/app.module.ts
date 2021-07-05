@@ -19,6 +19,7 @@ import { ProductsComponent } from './Shared/Products/products/products.component
 import { HomeComponent } from './Admin/Home/home/home.component';
 import { UserHomeComponent } from './User/user-home/user-home.component';
 import { ProductComponent } from './Products/product/product.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductComponent } from './Products/product/product.component';
     HomeComponent,
     UserHomeComponent,
     ProductComponent,
+    DashboardComponent,
     //AdminComponent,
   ],
   imports: [
