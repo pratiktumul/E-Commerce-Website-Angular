@@ -17,6 +17,7 @@ import { SignupComponent } from './Shared/navbar/signup/signup.component';
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
 import { HomeComponent } from './Admin/Home/home/home.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { HomeComponent } from './Admin/Home/home/home.component';
     MatFormFieldModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [ UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
