@@ -20,6 +20,7 @@ import { HomeComponent } from './Admin/Home/home/home.component';
 import { UserHomeComponent } from './User/user-home/user-home.component';
 import { ProductComponent } from './Products/product/product.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.compon
     MatFormFieldModule,
     MatIconModule,
   ],
-  providers: [AuthGuardGuard],
+  providers: [AuthGuardGuard , UserService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
