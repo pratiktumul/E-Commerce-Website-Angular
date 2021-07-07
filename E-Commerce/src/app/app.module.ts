@@ -13,10 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './Shared/navbar/forgot-password/forgot-password.component';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { SignupComponent } from './Shared/navbar/signup/signup.component';
+import { AuthGuardGuard } from './Guards/auth-guard.guard';
 
 import { AlertComponent } from './_components/alert.component';
 import { ProductsComponent } from './Shared/Products/products/products.component';
 import { HomeComponent } from './Admin/Home/home/home.component';
+import { UserHomeComponent } from './User/user-home/user-home.component';
+import { ProductComponent } from './Products/product/product.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
+
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
@@ -32,6 +37,9 @@ import { CommonModule } from '@angular/common';
     SignupComponent,
     ProductsComponent,
     HomeComponent,
+    UserHomeComponent,
+    ProductComponent,
+    DashboardComponent,
     AlertComponent
     //AdminComponent,
   ],
@@ -53,6 +61,7 @@ import { CommonModule } from '@angular/common';
 
     // provider used to create fake backend
     fakeBackendProvider],
+  providers: [AuthGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {
