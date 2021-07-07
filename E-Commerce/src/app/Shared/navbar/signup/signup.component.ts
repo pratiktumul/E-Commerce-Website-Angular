@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,FormControl,Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AccountService } from 'src/app/_services/account.service';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +14,14 @@ export class SignupComponent implements OnInit {
 
   registerForm: FormGroup;
     submitted = false;
-
-   
+   loading=false;
     
-  constructor(private formBuilder:FormBuilder) { }
+
+  constructor(private formBuilder:FormBuilder,
+    private route:ActivatedRoute,
+    private router:Router,
+    private accountService:AccountService,
+    private alertService:AlertService) { }
 
   ngOnInit(): void {
     
@@ -35,23 +43,32 @@ export class SignupComponent implements OnInit {
         //  ------------------------------------button functions-----------------------------  //
       
         onSubmit() {
-            this.submitted = true;
-      
-             if (this.registerForm.invalid) {
-                return;
-            }
-      
-             alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+          this.submitted = true;
+         
+        if (this.registerForm.invalid) {
+            return;
         }
-      
+        this.loading = true;
+        this.accountService.Signup(this.registerForm.value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    this.alertService.success('Registration successful', { keepAfterRouteChange: true });
+                    this.router.navigate(['../login'], { relativeTo: this.route });
+                },
+                error: error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
+            });
+       
+       //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      }
+  
         onReset() {
             this.submitted = false;
             this.registerForm.reset();
         }
-      
-      
-         
-          
       };
       
       
