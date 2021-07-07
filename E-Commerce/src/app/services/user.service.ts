@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   providedIn: 'root'
 })
 export class UserService {
-  registerationForm: any;
+   registerForm: any;
 
   constructor() { }
   addUser(user){
@@ -25,16 +25,16 @@ export class UserService {
 
 
   get firstname() {
-    return this.registerationForm.get('Firstname') as FormControl;
+    return this.registerForm.get('Firstname') as FormControl;
   }
   get lastname() {
-    return this.registerationForm.get('lastname') as FormControl;
+    return this.registerForm.get('lastname') as FormControl;
   }
   get email() {
-    return this.registerationForm.get('Email') as FormControl;
+    return this.registerForm.get('Email') as FormControl;
   }
   get password() {
-    return this.registerationForm.get('Password') as FormControl;
+    return this.registerForm.get('Password') as FormControl;
   }
    
   

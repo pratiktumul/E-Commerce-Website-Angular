@@ -1,54 +1,68 @@
-<br><div fxLayout="row" fxLayoutAlign="center center">
-      
+<br>
+<div fxLayout="row" fxLayoutAlign="center center">
+
   <div class="card m-auto">
-    <div class="card-header"> 
-        Register
+     
+
+      <div align  = "center"  class="card-header"> 
+        RegisterForm
+       </div>
+     <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group col-12">
+          <label for="name" class="form-label">FirstName</label>
+          <input type="text" class="form-control" formControlName="firstname" placeholder=" Enter FirstName">
+          <div *ngIf="f.firstname.touched && f.firstname.invalid" class="alert alert-danger">
+            <div *ngIf="f.firstname.errors.required"> FirstName is required.</div>
+          </div>
+
+        </div>
+
+        <div class="form-group col-12">
+          <label for="name" class="form-label">LastName</label>
+          <input type="text" class="form-control" formControlName="lastname" placeholder=" Enter LastName">
+
+          <div *ngIf="f.lastname.touched && f.lastname.invalid" class="alert alert-danger">
+            <div *ngIf="f.lastname.errors.required"> LastName is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email" placeholder=" Enter Email">
+
+          <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+            <div *ngIf="f.email.errors.required">Email is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group col-12">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder=" Enter Password">
+
+          <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+            <div *ngIf="f.password.errors.required"> Password is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group col-12">
+          <label for="password" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword" placeholder=" Enter Password">
+
+          <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid" class="alert alert-danger">
+            <div *ngIf="f.confirmPassword.errors.required"> ConfirmPassword is required.</div>
+          </div>
+        </div><br>
+
+
+        <div class="form-group col-12" align =  "center">
+
+          <button style="margin:8px" type="submit" class="btn btn-primary">SignUp</button>
+          <button type="reset" class="btn btn-secondary  ml-2">Cancel</button>
+        </div>
+
+      </form>
     </div>
-    <div class="card-body">
-        <form [formGroup] = "registerForm" (ngSubmit) = "onSubmit()">
-            <div class="form-group col-12">
-                <label for="name" class="form-label">FirstName</label>
-                <input type="text" class = "form-control" formControlName = "firstname">
-
-                <!-- <span *ngIf = "!firstname.valid && ( firstname.touched || userSubmitted )">Enter FirstName</span> -->
-            </div>
-
-            <div class="form-group col-12">
-               <label for="name" class="form-label">LastName</label>
-               <input type="text" class = "form-control" formControlName = "lastname">
-
-               <!-- <span *ngIf = "!lastname.valid && (lastname.touched || userSubmitted )">Enter LastName</span> -->
-           </div>
-           
-           <div class="form-group col-12">
-               <label for="email" class="form-label">Email</label>
-               <input type="text" class = "form-control" formControlName = "email">
-
-               <!-- <span *ngIf = "!email.valid && ( email.touched || userSubmitted )" >Enter Email</span> -->
-           </div>
-
-           <div class="form-group col-12">
-               <label for="password" class="form-label">Password</label>
-               <input type="password" class = "form-control" formControlName = "password">
-
-               <!-- <span *ngIf = "!password.valid && ( password.touched || userSubmitted )">Enter Password</span> -->
-           </div>
-          
-           <div class="form-group col-12">
-               <label for="password" class="form-label">Confirm Password</label>
-               <input type="password" class = "form-control" formControlName = "confirmPassword" >
-
-               <!-- <span *ngIf = "!password.valid && ( password.touched || userSubmitted)" >Enter Password</span> -->
-           </div><br>
-
-
-           <div class="form-group col-12">
-           
-           <button style = "margin:8px" type="submit" [disabled] = "!registerForm.valid" class="btn btn-primary">Save</button>
-           <button type="reset" class="btn btn-secondary  ml-2">Cancel</button>
-           </div>
-
-        </form>
-    </div>  
   </div>
 </div>
