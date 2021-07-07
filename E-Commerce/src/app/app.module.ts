@@ -13,11 +13,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './Shared/navbar/forgot-password/forgot-password.component';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { SignupComponent } from './Shared/navbar/signup/signup.component';
-
+import { AuthGuardGuard } from './Guards/auth-guard.guard';
 
 import { ProductsComponent } from './Shared/Products/products/products.component';
 import { HomeComponent } from './Admin/Home/home/home.component';
-import { UserService } from './services/user.service';
+import { UserHomeComponent } from './User/user-home/user-home.component';
+import { ProductComponent } from './Products/product/product.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,9 @@ import { UserService } from './services/user.service';
     SignupComponent,
     ProductsComponent,
     HomeComponent,
+    UserHomeComponent,
+    ProductComponent,
+    DashboardComponent,
     //AdminComponent,
   ],
   imports: [
@@ -42,7 +47,7 @@ import { UserService } from './services/user.service';
     MatFormFieldModule,
     MatIconModule,
   ],
-  providers: [ UserService],
+  providers: [AuthGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {
