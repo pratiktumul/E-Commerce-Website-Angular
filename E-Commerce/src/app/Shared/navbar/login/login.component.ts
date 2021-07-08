@@ -4,7 +4,7 @@ import { ILogin } from 'src/app/Interfaces/ilogin';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccountService } from 'src/app/_services/account.service';
+import { AccountServices} from 'src/app/_services/account.service';
 import { AlertService } from 'src/app/_services/alert.service';
  
 @Component({
@@ -20,17 +20,16 @@ export class LoginComponent implements OnInit {
   message: string;  
   returnUrl: string;
   isAdmin:boolean;
-    submitted = false;
     loading=false;
-    hide = true;
+   
     
 
   constructor(private formBuilder:FormBuilder,
    private route:ActivatedRoute,
    private router:Router,
-   private accountService:AccountService,
-   private alertService:AlertService) {
-  constructor(private formBuilder:FormBuilder, private service: AccountService,private router: Router) {
+   private accountService:AccountServices,
+   private alertService:AlertService,
+  private service: AccountService) {
    }
 
    model: ILogin= {userName:"admin@gmail.com", passWord:"admin@123"}

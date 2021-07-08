@@ -60,8 +60,8 @@ import { CommonModule } from '@angular/common';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider],
-  providers: [AuthGuardGuard],
+    fakeBackendProvider,AuthGuardGuard],
+ // providers: [AuthGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {

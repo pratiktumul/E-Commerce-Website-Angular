@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccountService } from 'src/app/_services/account.service';
+import { AccountServices } from 'src/app/_services/account.service';
 import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
     private route:ActivatedRoute,
     private router:Router,
-    private accountService:AccountService,
+    private accountService:AccountServices,
     private alertService:AlertService) { }
 
   ngOnInit(): void {
