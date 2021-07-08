@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
     submitted = false;
    loading=false;
-    
+    hide=true;
 
   constructor(private formBuilder:FormBuilder,
     private route:ActivatedRoute,
