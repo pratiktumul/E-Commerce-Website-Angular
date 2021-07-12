@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,FormControl,Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
  
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AccountServices } from 'src/app/_services/account.service';
+import { AlertService } from 'src/app/_services/alert.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

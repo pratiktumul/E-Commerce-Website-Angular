@@ -9,7 +9,11 @@ import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.compon
 import { SignupComponent } from './Shared/navbar/signup/signup.component';
 import { AuthGuardGuard } from './Guards/auth-guard.guard';
 
+import { AuthGuard } from './_helpers/auth.guard';
 const routes: Routes = [
+  {path: '',redirectTo:'Home', pathMatch:'full'},
+  {path:'Home',component:HomeComponent},
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   {path: '',redirectTo:'login', pathMatch:'full'},
   
   {path:'Home',component:HomeComponent, canActivate: [AuthGuardGuard]},
