@@ -21,6 +21,10 @@ import { UserHomeComponent } from './User/user-home/user-home.component';
 import { ProductComponent } from './Products/product/product.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 import { UserService } from './services/user.service';
+import { OrderListComponent } from './Admin/OrderList/order-list/order-list.component';
+import { StocksComponent } from './Admin/Stocks/stocks/stocks.component';
+import { TotalOrderComponent } from './Admin/TotalOrder/total-order/total-order.component';
+import { SettingsComponent } from './Admin/Settings/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { UserService } from './services/user.service';
     UserHomeComponent,
     ProductComponent,
     DashboardComponent,
+    OrderListComponent,
+    StocksComponent,
+    TotalOrderComponent,
+    SettingsComponent,
     //AdminComponent,
   ],
   imports: [
