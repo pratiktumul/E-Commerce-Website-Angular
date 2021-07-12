@@ -22,6 +22,10 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   
 
+
+  
+  
+  
   ngOnInit(): void {
 
 
@@ -46,6 +50,10 @@ export class SignupComponent implements OnInit {
 
    
   }
+  get f(){
+    return this.registerForm.controls;
+  }
+
 
   passwordMatchingValidatior(fg: FormGroup): Validators {
     return fg.get('password').value === fg.get('confirmPassword').value ? null :

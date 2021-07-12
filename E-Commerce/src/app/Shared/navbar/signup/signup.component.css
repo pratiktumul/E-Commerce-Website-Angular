@@ -1,3 +1,11 @@
 .card{
-      width:500px;
-   }
+      width:400px;
+    }
+
+   img{
+      width:110px;
+      height: 100px;
+ }
+  input{
+     padding: 10px ;  
+     }
