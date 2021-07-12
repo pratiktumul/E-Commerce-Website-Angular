@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/Services/account.service';
 import { ILogin } from 'src/app/Interfaces/ilogin';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AccountServices} from 'src/app/_services/account.service';
+import { AlertService } from 'src/app/_services/alert.service';
  
 @Component({
   selector: 'app-login',
@@ -18,9 +20,16 @@ export class LoginComponent implements OnInit {
   message: string;  
   returnUrl: string;
   isAdmin:boolean;
+    loading=false;
+   
     
 
-  constructor(private formBuilder:FormBuilder, private service: AccountService,private router: Router) {
+  constructor(private formBuilder:FormBuilder,
+   private route:ActivatedRoute,
+   private router:Router,
+   private accountService:AccountServices,
+   private alertService:AlertService,
+  private service: AccountService) {
    }
 
    model: ILogin= {userName:"admin@gmail.com", passWord:"admin@123"}
@@ -46,6 +55,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
       this.submitted = true;
       this.isAdmin=true;
+
+      //reset alert on submit
+      this.alertService.clear();
+
        if (this.registerForm.invalid) {
           return;
       }
@@ -63,6 +76,22 @@ export class LoginComponent implements OnInit {
       }
 
       //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      this.loading = true;
+        this.accountService.login(this.f.username?.value, this.f.password?.value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    // get return url from query parameters or default to home page
+                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                    this.router.navigateByUrl(returnUrl);
+                },
+                error: error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
+            });
+
+       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 
   onReset() {

@@ -13,7 +13,11 @@ import { StocksComponent } from './Admin/Stocks/stocks/stocks.component';
 import { TotalOrderComponent } from './Admin/TotalOrder/total-order/total-order.component';
 import { SettingsComponent } from './Admin/Settings/settings/settings.component';
 
+import { AuthGuard } from './_helpers/auth.guard';
 const routes: Routes = [
+  {path: '',redirectTo:'Home', pathMatch:'full'},
+  {path:'Home',component:HomeComponent},
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   {path: '',redirectTo:'login', pathMatch:'full'},
   
   {path:'Home',component:DashboardComponent, canActivate: [AuthGuardGuard]},
