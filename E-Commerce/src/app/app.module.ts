@@ -22,6 +22,10 @@ import { UserHomeComponent } from './User/user-home/user-home.component';
 import { ProductComponent } from './Products/product/product.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 import { UserService } from './services/user.service';
+import { OrderListComponent } from './Admin/OrderList/order-list/order-list.component';
+import { StocksComponent } from './Admin/Stocks/stocks/stocks.component';
+import { TotalOrderComponent } from './Admin/TotalOrder/total-order/total-order.component';
+import { SettingsComponent } from './Admin/Settings/settings/settings.component';
 
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
@@ -41,7 +45,11 @@ import { CommonModule } from '@angular/common';
     UserHomeComponent,
     ProductComponent,
     DashboardComponent,
-    AlertComponent
+    AlertComponent,
+    OrderListComponent,
+    StocksComponent,
+    TotalOrderComponent,
+    SettingsComponent,
     //AdminComponent,
   ],
   imports: [
@@ -59,11 +67,11 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    AuthGuardGuard , UserService,
     // provider used to create fake backend
     fakeBackendProvider,AuthGuardGuard],
  // providers: [AuthGuardGuard],
-  providers: [AuthGuardGuard , UserService ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {
