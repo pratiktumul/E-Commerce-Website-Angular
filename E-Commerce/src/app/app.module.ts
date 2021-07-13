@@ -59,11 +59,11 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    AuthGuardGuard , UserService,
     // provider used to create fake backend
     fakeBackendProvider,AuthGuardGuard],
  // providers: [AuthGuardGuard],
-  providers: [AuthGuardGuard , UserService ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {

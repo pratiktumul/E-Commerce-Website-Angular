@@ -16,25 +16,15 @@ export class SignupComponent implements OnInit {
 
    
   constructor(private fb:FormBuilder  , private userService : UserService ) { }
-
   
   user: any = {};
   registerForm: FormGroup;
-  
 
-
-  
-  
   
   ngOnInit(): void {
-
-
     this.createRegisterationForm();
-
   }
- 
- 
-    
+  
   createRegisterationForm(){
 
     this.registerForm = this.fb.group({
@@ -47,7 +37,6 @@ export class SignupComponent implements OnInit {
  
 
     })
-
    
   }
   get f(){
@@ -60,9 +49,6 @@ export class SignupComponent implements OnInit {
 
     {notmatched:true};
   }
-
-  
-
   
   onSubmit(){
 
