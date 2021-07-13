@@ -1,83 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/Services/account.service';
-import { ILogin } from 'src/app/Interfaces/ilogin';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccountServices} from 'src/app/_services/account.service';
+
+import { AccountServices } from 'src/app/_services/account.service';
 import { AlertService } from 'src/app/_services/alert.service';
- 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
+
+@Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
-  
-  registerForm: FormGroup;
-  submitted = false;
-  hide = true;
-  message: string;  
-  returnUrl: string;
-  isAdmin:boolean;
-    loading=false;
-   
-    
+    form: FormGroup;
+    loading = false;
+    submitted = false;
+    message:string;
 
-  constructor(private formBuilder:FormBuilder,
-   private route:ActivatedRoute,
-   private router:Router,
-   private accountService:AccountServices,
-   private alertService:AlertService,
-  private service: AccountService) {
-   }
+    constructor(
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private accountService: AccountServices,
+        private alertService: AlertService
+    ) { }
 
-   model: ILogin= {userName:"admin@gmail.com", passWord:"admin@123"}
+    ngOnInit() {
+        this.form = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
+    }
 
-  ngOnInit(): void {
-// ---------------------------------------validations--------------------------------------//
-    this.isAdmin=false;
-    this.registerForm = this.formBuilder.group({
-      userName: ['',Validators.compose([ Validators.required , Validators.email]) ],
-      passWord: ['', [Validators.required, Validators.minLength(6)] ],
-    });
+    // convenience getter for easy access to form fields
+    get f() { return this.form.controls; }
 
-    this.returnUrl= '/Home';
-    this.service.logout();
+    onSubmit() {
+        this.submitted = true;
 
-  }
-  get f() { 
-    return this.registerForm.controls;
-   }
+        // reset alerts on submit
+        this.alertService.clear();
 
-  //  ------------------------------------button functions-----------------------------  //
-
-  onSubmit() {
-      this.submitted = true;
-      this.isAdmin=true;
-
-      //reset alert on submit
-      this.alertService.clear();
-
-       if (this.registerForm.invalid) {
-          return;
-      }
-      else {
-        if(this.f.userName.value==this.model.userName&& this.f.passWord.value==this.model.passWord){
-  
-          localStorage.setItem('isLoggedin',"true");
-          localStorage.setItem('token',this.f.userName.value);
-          this.router.navigate([this.returnUrl]);
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            return;
         }
-        else{
-          this.message="Please check Credentials";
-          console.log(this.message);
-        }
-      }
 
-      //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-      this.loading = true;
-        this.accountService.login(this.f.username?.value, this.f.password?.value)
+        this.loading = true;
+        this.accountService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe({
                 next: () => {
@@ -90,19 +56,8 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 }
             });
-
-       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-  }
-
-  onReset() {
-      this.submitted = false;
-      this.registerForm.reset();
-  }
-
-
-   
-    
-};
+    }
+}
 
 
 
