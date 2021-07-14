@@ -30,10 +30,18 @@
             </svg></button>
       </form>
 </div>
-      <div class="d-flex " style="margin-right: 30px; text-emphasis-color : inherit;">
-
-          <a class="nav-link " href="signup" style=" color: #fff;">Signup</a>
-          <a class="nav-link " href="login" style=" color: #fff;">Login</a>
+<li class="nav-item dropdown d-flex" >
+  <a class="nav-link dropdown-toggle" style="color: ivory;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+   {{user.username}}
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" href="Orders" >Your Orders</a></li>
+    <li><a class="dropdown-item" href="Settings">Settings</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#"(click)="logout()">Logout</a></li>
+  </ul>
+</li>
+  
 
 
         <a type="button" class="btn btn-primary " class="nav-link" href="#">
@@ -42,13 +50,8 @@
           </svg></h4>
         </a>
 
-        </div>
 </nav> 
-<nav class="navbar navbar-expand " *ngIf="user">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
-</nav>
+
 
 <!-- main app container -->
 <div class="app-container" [ngClass]="{ 'bg-light': user }">
