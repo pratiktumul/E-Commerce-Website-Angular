@@ -33,7 +33,7 @@
       <div class="d-flex " style="margin-right: 30px; text-emphasis-color : inherit;">
 
           <a class="nav-link " href="signup" style=" color: #fff;">Signup</a>
-          <a class="nav-link " href="login" style=" color: #fff;">Login</a>
+          <a class="nav-link " href="login" (click)="logout()" style=" color: #fff;">LogOut</a>
 
 
         <a type="button" class="btn btn-primary " class="nav-link" href="#">
@@ -44,11 +44,11 @@
 
         </div>
 </nav> 
-<nav class="navbar navbar-expand " *ngIf="user">
+<!--nav class="navbar navbar-expand " *ngIf="user">
   <div class="navbar-nav">
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
-</nav>
+</nav-->
 
 <!-- main app container -->
 <div class="app-container" [ngClass]="{ 'bg-light': user }">
